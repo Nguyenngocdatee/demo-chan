@@ -81,71 +81,10 @@ nav ul li a:hover {
             </nav>
     <!-- Main content -->
     <div class="container">
-        <h1>CÁC MÓN ĂN</h1>
+        <h1>CÁC MÓN ĂN moi</h1>
 
         <?php
-        // Truy vấn database để lấy danh sách
-        // 1. Include file cấu hình kết nối đến database, khởi tạo kết nối $conn
-        //include_once(__DIR__ . '/../dbconnect.php');
-       
-        $conn = mysqli_connect('localhost', 'root', '', 'danhmucsp') ;
-        // 2. Chuẩn bị câu truy vấn $sql
-        $sql = "select * from `tbl_khoa` order by tensanpham";
-
-        // 3. Thực thi câu truy vấn SQL để lấy về dữ liệu
-        $result = mysqli_query($conn, $sql);
-
-        // 4. Khi thực thi các truy vấn dạng SELECT, dữ liệu lấy về cần phải phân tách để sử dụng
-        // Thông thường, chúng ta sẽ sử dụng vòng lặp while để duyệt danh sách các dòng dữ liệu được SELECT
-        // Ta sẽ tạo 1 mảng array để chứa các dữ liệu được trả về
-        
-        ?>
-
-        <!-- Button Thêm mới -->
-        <a href="createSP.php" class="btn btn-primary">
-            <i class="fas fa-plus"></i> Thêm mới
-        </a>
-        <form action="" method="GET">
-<input type="text" name="texttimkiem" />
-<input type="submit" name="timkiem" value="Gửi" />
-</form>
-        <?php
-include('connect_db.php');
-if (isset($_GET['timkiem'])) {
-$tukhoa = $_GET['texttimkiem'];
-// từ mình nhập vào ô input;
-$sql_timkiem = "SELECT * FROM `tbl_khoa` WHERE `tensanpham` LIKE '%" .$tukhoa. "%' ";
-$query_timkiem = mysqli_query($conn, $sql_timkiem);
-} else {
-$tukhoa = '';
-$sql_timkiem = "SELECT * FROM `tbl_khoa` limit 20";
-$query_timkiem = mysqli_query($conn, $sql_timkiem);
-}
-?>
-<?php
-$data = [];
-        $rowNum = 1;
-        while ($rowtimkiem = mysqli_fetch_array($query_timkiem)) {
-            $data[] = array(
-                'rowNum' => $rowNum, // sử dụng biến tự tăng để làm dữ liệu cột STT
-                'ID' => $rowtimkiem['ID'],
-                'tensanpham' => $rowtimkiem['tensanpham'],
-                'gia' => $rowtimkiem['gia'],
-                'anhmota' => $rowtimkiem['anhmota']
-                
-            );
-            $rowNum++;
-        }
-       
-     ?>
-     <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th>STT</th>
-                    <th>ID</th>
-                    <th>TÊN SP</th>
-                    <th>GIÁ</th>
-                    <th>Ảnh mô tả</th>
+        // Truy vấn databTa</th>
                     <th>SỬA</th>
                     <th>Xóa</th>
                     
